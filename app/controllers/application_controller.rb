@@ -11,4 +11,24 @@ class ApplicationController < Sinatra::Base
     projects.to_json(include: {business: {only: [:name, :logo_url]}})
   end
 
+  get "/projects/:id" do
+    project = Project.find(params[:id])
+    project.to_json(include: {business: {only: [:name, :logo_url]}})
+  end
+
+  delete "/projects/:id" do
+    project = Project.find(params[:id])
+    project.destroy
+    project.to_json
+  end
+
+  patch "/projects/:id" do
+    project = Project.find(params[:id])
+    project.update(
+      name: params[:name],
+      description: params[:description],
+      due_date: params[:due_date]
+    )
+  end
+
 end
