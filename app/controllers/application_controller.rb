@@ -6,4 +6,9 @@ class ApplicationController < Sinatra::Base
     { message: "Good luck with your project!" }.to_json
   end
 
+  get "/projects" do
+    projects = Project.all 
+    projects.to_json(include: {business: {only: [:name, :logo_url]}})
+  end
+
 end

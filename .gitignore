@@ -16,3 +16,6 @@
 
 # Canvas-specific .results.json
 .results.json
+
+.DS_Store
+app/.DS_Store
