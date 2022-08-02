@@ -1,13 +1,13 @@
 <mxfile host="65bd71144e">
     <diagram id="aNdP3EPnXgJZaNv3R9gw" name="Page-1">
-        <mxGraphModel dx="875" dy="653" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="809" dy="545" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="2" value="Team&lt;br&gt;has_many :projects&lt;br&gt;has_many :tasks, through: :projects&lt;br&gt;&lt;br&gt;integer :member_id" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="2" value="Team&lt;br&gt;has_many :projects&lt;br&gt;has_many :members&lt;br&gt;has_many :tasks, through: :projects&lt;br&gt;&lt;br&gt;integer :member_id" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="26" y="399" width="200" height="240" as="geometry"/>
                 </mxCell>
-                <mxCell id="3" value="Project&lt;br&gt;belongs_to :team&lt;br&gt;belongs_to: business&lt;br&gt;has_many :tasks&lt;br&gt;&lt;br&gt;integer :business_id&lt;br&gt;integer :team_id&lt;br&gt;string :name&lt;br&gt;string :description&lt;br&gt;string :due_date" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="3" value="Project&lt;br&gt;belongs_to :team&lt;br&gt;belongs_to: business&lt;br&gt;has_many :tasks&lt;br&gt;has_many :requests, through: :businesses&lt;br&gt;&lt;br&gt;integer :business_id&lt;br&gt;integer :team_id&lt;br&gt;string :name&lt;br&gt;string :description&lt;br&gt;string :due_date" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="310" y="399" width="197" height="245" as="geometry"/>
                 </mxCell>
                 <mxCell id="5" value="Business&lt;br&gt;has_many :projects&lt;br&gt;&lt;br&gt;string :name&lt;br&gt;string :logo_url&lt;br&gt;string :email&lt;br&gt;string :contact_name&lt;br&gt;string :phone" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
@@ -34,10 +34,10 @@
                         <mxPoint x="424" y="646" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="10" value="Request&lt;br&gt;belongs_to :business&lt;br&gt;&lt;br&gt;string :request&lt;br&gt;integer :business_id" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="10" value="Request&lt;br&gt;belongs_to :business&lt;br&gt;belongs_to :project&lt;br&gt;&lt;br&gt;string :description&lt;br&gt;integer :business_id" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="609" y="690" width="210" height="198" as="geometry"/>
                 </mxCell>
-                <mxCell id="11" value="" style="endArrow=classic;html=1;entryX=0.542;entryY=1.015;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.544;exitY=0.025;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" edge="1">
+                <mxCell id="11" value="" style="endArrow=classic;html=1;exitX=0.544;exitY=0.025;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=1;entryDx=0;entryDy=0;" parent="1" edge="1" target="3">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="723.24" y="690.95" as="sourcePoint"/>
                         <mxPoint x="723.24" y="642.6599999999999" as="targetPoint"/>
