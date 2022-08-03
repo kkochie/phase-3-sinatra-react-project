@@ -2,7 +2,7 @@ class ProjectController < ApplicationController
   set :default_content_type, 'application/json'
   
   get "/projects" do
-    projects = Project.all 
+    projects = Project.all.order(:due_date) 
     projects.to_json(include: {business: {only: [:name, :logo_url]}})
   end
 

@@ -2,7 +2,7 @@ class BusinessController < ApplicationController
 	set :default_content_type, 'application/json'
 
 	get "/business" do
-		business = Business.all 
+		business = Business.all.order(:name) 
 		business.to_json
 	end
 
