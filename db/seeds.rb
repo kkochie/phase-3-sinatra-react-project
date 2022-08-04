@@ -18,7 +18,7 @@ puts "Creating Teams..."
 10.times{Team.create(project_id: rand(1..10), member_id: rand(1..5), team_name: Faker::Commerce.department, skills: Faker::ProgrammingLanguage.name) }
 
 puts "Creating Projects..."
-10.times{Project.create(team_id: rand(1..10), business_id: rand(1..5), name: Faker::Emotion.noun, description: Faker::Hipster.paragraph, due_date: Faker::Date.between(from: '2021-11-01', to: '2021-12-23') )}
+10.times{Project.create(task_id: rand(1..5), team_id: rand(1..10), business_id: rand(1..5), name: Faker::Emotion.noun, description: Faker::Hipster.paragraph, due_date: Faker::Date.between(from: '2021-11-01', to: '2021-12-23') )}
 
 puts "Creating Tasks..."
 10.times{Task.create(project_id: rand(1..10), name: Faker::Hobby.activity, complete: Faker::Boolean.boolean, description: Faker::Hipster.paragraph, skills_needed: Faker::ProgrammingLanguage.name)}
