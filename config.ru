@@ -18,3 +18,4 @@ use BusinessController
 use MemberController
 use RequestController
 use TaskController
+use TeamController
