@@ -3,7 +3,7 @@ class ProjectController < ApplicationController
   
   get "/projects" do
     projects = Project.all.order(:due_date) 
-    projects.to_json(include: {business: {only: [:name, :logo_url]}})
+    projects.to_json(include: {business: {only: [:name, :logo_url]}, team: {only: [:team_name]}})
   end
 
   post "/projects" do
