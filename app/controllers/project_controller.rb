@@ -13,7 +13,7 @@ class ProjectController < ApplicationController
 
   get "/projects/:id" do
     project = Project.find(params[:id])
-    project.to_json(include: {business: {only: [:name, :logo_url]}})
+    project.to_json(include: {business: {only: [:name, :logo_url]}, team: {only: [:team_name]}})
   end
 
   delete "/projects/:id" do
