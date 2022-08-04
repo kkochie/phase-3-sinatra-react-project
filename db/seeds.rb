@@ -9,13 +9,13 @@ Member.destroy_all
 puts "🌱 Seeding spices..."
 
 puts "Creating Businesses..."
-5.times{Business.create(name: Faker::Company.name, logo_url: Faker::Company.logo, contact_name: Faker::Name.name, phone: Faker::PhoneNumber.phone_number, email: "woobly123@gmail.com")}
+5.times{Business.create(project_id: rand(1..10), name: Faker::Company.name, logo_url: Faker::Company.logo, contact_name: Faker::Name.name, phone: Faker::PhoneNumber.phone_number, email: "woobly123@gmail.com")}
 
 puts "Creating Members..."
-5.times{Member.create(name: Faker::Name.name, skill: Faker::ProgrammingLanguage.name)}
+5.times{Member.create(project_id: rand(1..10), name: Faker::Name.name, skill: Faker::ProgrammingLanguage.name)}
 
 puts "Creating Teams..."
-10.times{Team.create(member_id: rand(1..5), team_name: Faker::Commerce.department, skills: Faker::ProgrammingLanguage.name) }
+10.times{Team.create(project_id: rand(1..10), member_id: rand(1..5), team_name: Faker::Commerce.department, skills: Faker::ProgrammingLanguage.name) }
 
 puts "Creating Projects..."
 10.times{Project.create(team_id: rand(1..10), business_id: rand(1..5), name: Faker::Emotion.noun, description: Faker::Hipster.paragraph, due_date: Faker::Date.between(from: '2021-11-01', to: '2021-12-23') )}

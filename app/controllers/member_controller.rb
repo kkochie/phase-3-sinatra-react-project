@@ -3,7 +3,7 @@ class MemberController < ApplicationController
   
   get "/members" do
     members = Member.all 
-    members.to_json
+    members.to_json(include: {projects: {only: [:name]}})
   end
 
   post "/members" do

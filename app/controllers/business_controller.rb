@@ -3,7 +3,7 @@ class BusinessController < ApplicationController
 
 	get "/business" do
 		business = Business.all.order(:name) 
-		business.to_json
+		business.to_json(inlude: {projects: {only: [:name]}})
 	end
 
 	post "/business" do
@@ -13,7 +13,7 @@ class BusinessController < ApplicationController
 
 	get "/business/:id" do
 		business = Business.find(params[:id])
-		business.to_json
+		business.to_json(inlude: {projects: {only: [:name]}})
 	end
 
 	delete "/business/:id" do
