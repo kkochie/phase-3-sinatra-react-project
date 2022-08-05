@@ -8,12 +8,12 @@ class ProjectController < ApplicationController
 
   post "/projects" do
     project = Project.create(params)
-    project.to_json
+    project.to_json(include: {business: {only: [:name, :logo_url]}, team: {only: [:team_name]}, tasks: {only: [:name, :complete, :skills_needed]}})
   end
 
   get "/projects/:id" do
     project = Project.find(params[:id])
-    project.to_json(include: {business: {only: [:name, :logo_url]}, team: {only: [:team_name]}})
+    project.to_json(include: {business: {only: [:name, :logo_url]}, team: {only: [:team_name]}, tasks: {only: [:name, :complete, :skills_needed]}})
   end
 
   delete "/projects/:id" do
@@ -25,6 +25,6 @@ class ProjectController < ApplicationController
   patch "/projects/:id" do
     project = Project.find(params[:id])
     project.update(params)
-    project.to_json
+    project.to_json(include: {business: {only: [:name, :logo_url]}, team: {only: [:team_name]}, tasks: {only: [:name, :complete, :skills_needed]}})
   end
 end

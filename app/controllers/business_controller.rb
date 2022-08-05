@@ -8,7 +8,7 @@ class BusinessController < ApplicationController
 
 	post "/business" do
 		business = Business.create(params)
-		business.to_json
+		business.to_json(inlude: {projects: {only: [:name]}})
 	end
 
 	get "/business/:id" do
@@ -25,6 +25,6 @@ class BusinessController < ApplicationController
 	patch "/business/:id" do
 		business = Business.find(params[:id])
 		business.update(params)
-		business.to_json
+		business.to_json(inlude: {projects: {only: [:name]}})
 	end
 end
